@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Gallery from "./gallery/gallery";
 import Contact from "./contact/contact";
 import Stories from "./stories/stories";
 import About from "./about/about";
+import Footer from "./footer/footer";
 
 function LandingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className="h-screen px-4 sm:px-0 w-full md:w-11/12 mx-auto flex flex-col  items-center">
-      <div className="flex flex-col items-center">
+    <div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col  items-center">
+      <div className="flex flex-row justify-between items-center pt-10">
         <img
           src="/assets/logo.png"
           alt=""
@@ -32,6 +33,7 @@ function LandingPage() {
           }[currentIndex]
         }
       </div>
+      <Footer/>
     </div>
   );
 }
