@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: futura-pt, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,5 +16,12 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+
+@layer utilities{
+  .anchor{
+    @apply uppercase text-secondary no-underline hover:underline hover:animate-bounce animate-none underline-offset-8;
+  }
 }
 
