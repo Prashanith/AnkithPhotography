@@ -14,7 +14,7 @@ function Contact() {
   return (
     <div className="w-full">
       <div className="flex flex-col justify-start items-start">
-        <h2>Contact Us</h2>
+        <h2 className="uppercase text-3xl mb-10">Contact Us</h2>
         <form
           className="flex flex-col justify-start items-start space-y-2"
           onSubmit={formik.handleSubmit}
@@ -42,10 +42,10 @@ function Contact() {
             value={formik.values.message}
             onChange={formik.handleChange}
           ></textarea>
-          <button className="submitButton" type="submit">
-            SUBMIT
-          </button>
         </form>
+        <button className="submitButton mt-10" type="submit">
+          SUBMIT
+        </button>
       </div>
     </div>
   );

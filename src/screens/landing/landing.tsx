@@ -1,27 +1,33 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Gallery from "./gallery/gallery";
 import Contact from "./contact/contact";
 import Stories from "./stories/stories";
 import About from "./about/about";
 import Footer from "./footer/footer";
+import Navbar from "../../components/navbar/navigationBar";
 
 function LandingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col  items-center">
-      <div className="flex flex-row justify-between items-center pt-10">
-        <img
-          src="/assets/logo.png"
-          alt=""
-          className="w-3/5 sm:w-2/5 md:w-2/12 xl:1/12"
-        />
-        <ul className="flex uppercase space-x-10">
-          <li onClick={() => setCurrentIndex(0)} className="anchor">Gallery</li>
-          <li onClick={() => setCurrentIndex(1)} className="anchor">Contact</li>
-          <li onClick={() => setCurrentIndex(2)} className="anchor">Stories</li>
-          <li onClick={() => setCurrentIndex(3)} className="anchor">About</li>
-        </ul>
-      </div>
+    <div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center">
+      <Navbar
+        navItems={[
+          {
+            label: "Gallery",
+          },
+          {
+            label: "Contact",
+          },
+          {
+            label: "Stories",
+          },
+          {
+            label: "About",
+          },
+        ]}
+        navigate={setCurrentIndex}
+        currentIndex={currentIndex}
+      />
 
       <div className="py-10">
         {
@@ -33,7 +39,7 @@ function LandingPage() {
           }[currentIndex]
         }
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

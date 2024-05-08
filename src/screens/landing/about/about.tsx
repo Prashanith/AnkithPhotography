@@ -2,13 +2,13 @@ import React from "react";
 
 function About() {
   return (
-    <div className="flex justify-start items-start space-x-5">
+    <div className="px-6 sm:p-0 sm:m-0 gap-6 flex items-start justify-center flex-col sm:flex-row space-x-5">
       <img
-        src="/assets/ankith.jpg"
+        src="https://images.pexels.com/photos/1082663/pexels-photo-1082663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt=""
-        className="max-h-[80vh] max-w-[50vw]"
+        className="grayscale sm:w-2/5"
       />
-      <p>
+      <p className="sm:w-3/5 text-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe maiores
         in quod consequuntur sunt quae mollitia nisi aut impedit dolore
         quibusdam sed praesentium nobis, aliquid placeat est ratione dicta

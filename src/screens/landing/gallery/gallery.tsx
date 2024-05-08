@@ -1,63 +1,52 @@
-import { useState, useEffect } from "react";
 
 function Gallery() {
-  const [cols, setCols] = useState(3);
-
-  const images = [
-    "/assets/img1.jpg",
-    "/assets/img2.jpg",
-    "/assets/img3.jpg",
-
-    "/assets/img7.jpg",
-    "/assets/img1.jpg",
-    "/assets/img2.jpg",
-    "/assets/img3.jpg",
-    "/assets/img4.jpg",
-    "/assets/img5.jpg",
-    "/assets/img6.jpg",
-    "/assets/img7.jpg",
-    "/assets/img4.jpg",
-    "/assets/img5.jpg",
-    "/assets/img6.jpg",
-
-    "/assets/img1.jpg",
-    "/assets/img2.jpg",
-    "/assets/img3.jpg",
-    "/assets/img4.jpg",
-    "/assets/img5.jpg",
-    "/assets/img6.jpg",
-    "/assets/img7.jpg",
-  ];
-
-  function splitCols(array: string[], n: number) {
-    const result = [];
-    for (let i = n; i > 0; i--) {
-      result.push(array.splice(0, Math.ceil(array.length / i)));
-    }
-    return result;
-  }
-
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setCols(1);
-    } else {
-      setCols(3);
-    }
-  }, []);
-
   return (
-    <div className="bg-primary">
-      <div className={`gallery grid grid-cols-${cols} gap-4`}>
-        {splitCols(images, cols).map((e) => {
-          return (
-            <div className="flex flex-col space-y-4 ">
-              {e.map((x) => {
-                return <img src={x} className="image " />;
-              })}
-            </div>
-          );
-        })}
-      </div>
+    <div className="gallery m-0 p-0 w-full flex flex-wrap gap-12 px-6 sm:px-0 sm:grid sm:grid-cols-3 sm:gap-4">
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/1028/300/300"
+        alt="a forest after an apocalypse"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/15/300/300"
+        alt="a waterfall and many rocks"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/1040/300/300"
+        alt="a house on a mountain"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/106/300/300"
+        alt="sime pink flowers"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/136/300/300"
+        alt="big rocks with some trees"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/1039/300/300"
+        alt="a waterfall, a lot of tree and a great view from the sky"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/110/300/300"
+        alt="a cool landscape"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/1047/300/300"
+        alt="inside a town between two big buildings"
+      />
+      <img
+        className="galleryImage"
+        src="https://picsum.photos/id/1057/300/300"
+        alt="a great view of the sea above the mountain"
+      />
     </div>
   );
 }
