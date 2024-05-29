@@ -15,7 +15,9 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
 
   return (
-    <div className={`flex flex-row z-[11] w-full items-center py-5 md:py-8 lg:py-8 xl:py-12 pagePadding`}>
+    <div
+      className={`flex flex-row z-[11] w-full items-center py-5 md:py-8 lg:py-8 xl:py-12 pagePadding`}
+    >
       {/* side navigation bar */}
       <Sidebar
         show={showSideNav}
@@ -25,18 +27,16 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
         currentIndex={currentIndex}
       />
 
-      <div className="flex-1 flex justify-between shadow-md items-center">
+      <div className="relative flex-1 flex justify-center lg:justify-between shadow-md items-center py-5 border-b-secondary border-b-2">
         {/* {Brand} */}
-        <div>
-          <img
-            src="/assets/logo.png"
-            alt=""
-            className="w-2/6 sm:w-1/4 md:w-3/12 lg:5/12 xl:1/12"
-          />
-        </div>
+        <img
+          src="/assets/logo.png"
+          alt=""
+          className="w-2/6 sm:w-1/4 md:w-3/12 lg:5/12 xl:1/12"
+        />
 
         <span
-          className="material-symbols-outlined align-middle lg:hidden mr-2 "
+          className="absolute lg:relative right-0 material-symbols-outlined align-middle lg:hidden mr-2"
           onClick={(e) => {
             e.preventDefault();
             setshowSideNav(!showSideNav);
