@@ -6,7 +6,7 @@ function SplashScreen() {
 
   useEffect(() => {
     setTimeout(() => {
-      //router("/home");
+      router("/home");
     }, 1500);
   }, []);
 
