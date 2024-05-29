@@ -9,7 +9,7 @@ import { motion, useScroll } from "framer-motion";
 
 function LandingPage() {
   const { scrollYProgress } = useScroll();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(3);
   return (
     <motion.div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center">
       <Navbar
