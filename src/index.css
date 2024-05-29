@@ -38,7 +38,7 @@ textarea {
   font-size: 3em;
   border: none;
   border-radius: 4px;
-  @apply text-base px-3 py-2 text-tertiary w-full md:w-[400px];
+  @apply text-base px-3 py-2 text-tertiary w-[80vw] sm:w-[450px] ;
 }
 
 input:hover,
@@ -48,7 +48,7 @@ textarea:hover {
 }
 
 label{
-  @apply text-lg uppercase mb-0
+  @apply text-base uppercase mb-0
 }
 
 .galleryImage {

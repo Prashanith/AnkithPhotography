@@ -12,9 +12,9 @@ function Contact() {
     },
   });
   return (
-    <div className="w-full">
+    <div className="w-full pt-[10vh]">
       <div className="flex flex-col justify-start items-start">
-        <h2 className="uppercase text-3xl mb-10">Contact Us</h2>
+        <h2 className="uppercase text-xl lg:text-3xl mb-10">Contact Us</h2>
         <form
           className="flex flex-col justify-start items-start space-y-2"
           onSubmit={formik.handleSubmit}
