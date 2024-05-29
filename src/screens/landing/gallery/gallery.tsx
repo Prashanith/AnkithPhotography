@@ -1,7 +1,7 @@
 
 function Gallery() {
   return (
-    <div className="gallery m-0 p-0 w-full flex flex-wrap gap-12 px-6 sm:px-0 sm:grid sm:grid-cols-3 sm:gap-4">
+    <div className="gallery m-0 p-0 w-full flex flex-wrap gap-12 px-6 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
       <img
         className="galleryImage"
         src="https://picsum.photos/id/1028/300/300"
