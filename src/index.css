@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  font-family: futura-pt, sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.5;
-  font-weight: 300;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -27,11 +28,11 @@ body {
     @apply bg-secondary text-primary uppercase px-4 py-2 mt-10  text-base rounded-md;
   }
 
-  .pagePadding{
-    @apply px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14; 
+  .pagePadding {
+    @apply px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14;
   }
 
-  .content{
+  .content {
     @apply flex flex-col sm:flex-row justify-start items-start space-x-6;
   }
 }
@@ -42,7 +43,7 @@ textarea {
   font-size: 3em;
   border: none;
   border-radius: 4px;
-  @apply text-base px-3 py-2 text-tertiary w-[80vw] sm:w-[450px] ;
+  @apply text-base px-3 py-2 text-tertiary w-[80vw] sm:w-[450px];
 }
 
 input:hover,
@@ -51,8 +52,8 @@ textarea:hover {
   outline: 1px solid grey;
 }
 
-label{
-  @apply text-base uppercase mb-0
+label {
+  @apply text-base uppercase mb-0;
 }
 
 .galleryImage {
