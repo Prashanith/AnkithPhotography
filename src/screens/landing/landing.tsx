@@ -11,10 +11,7 @@ function LandingPage() {
   const { scrollYProgress } = useScroll();
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <motion.div
-      style={{ scaleX: scrollYProgress }}
-      className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center"
-    >
+    <motion.div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center">
       <Navbar
         navItems={[
           {
