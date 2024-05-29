@@ -6,7 +6,7 @@ function SplashScreen() {
 
   useEffect(() => {
     setTimeout(() => {
-      router("/home");
+      //router("/home");
     }, 1500);
   }, []);
 
@@ -15,7 +15,7 @@ function SplashScreen() {
       <img
         src="/assets/logo.png"
         alt=""
-        className="w-3/5 sm:w-2/5 md:w-1/5 xl:2/5"
+        className="w-3/5 sm:w-2/5 md:w-2/5 xl:1/4"
       />
     </div>
   );
