@@ -5,11 +5,16 @@ import Stories from "./stories/stories";
 import About from "./about/about";
 import Footer from "./footer/footer";
 import Navbar from "../../components/navbar/navigationBar";
+import { motion, useScroll } from "framer-motion";
 
 function LandingPage() {
+  const { scrollYProgress } = useScroll();
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center">
+    <motion.div
+      style={{ scaleX: scrollYProgress }}
+      className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center"
+    >
       <Navbar
         navItems={[
           {
@@ -40,7 +45,7 @@ function LandingPage() {
         }
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
