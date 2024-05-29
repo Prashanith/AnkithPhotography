@@ -29,7 +29,7 @@ function LandingPage() {
         currentIndex={currentIndex}
       />
 
-      <div className="py-10">
+      <div className="pagePadding">
         {
           {
             0: <Gallery />,

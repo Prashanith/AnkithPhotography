@@ -15,7 +15,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
 
   return (
-    <div className={`flex flex-row z-[11] w-full md:py-10 p-6 md:px-0`}>
+    <div className={`flex flex-row z-[11] w-full items-center py-5 pagePadding`}>
       {/* side navigation bar */}
       <Sidebar
         show={showSideNav}
