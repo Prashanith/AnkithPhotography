@@ -1,7 +1,13 @@
-import React from "react";
-
 function Stories() {
-  return <div>Catch up my daily here, COMING SOON... STAY TUNED</div>;
+  return (
+    <div className="w-full my-[40vh] text-center">
+      <p>
+        Catch up my daily here,
+        <br />
+        COMING SOON... STAY TUNED
+      </p>
+    </div>
+  );
 }
 
 export default Stories;
