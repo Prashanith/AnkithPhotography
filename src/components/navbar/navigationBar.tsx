@@ -18,7 +18,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
 
   return (
     <div
-      className={`flex flex-row z-[11] w-full items-center py-2 md:py-4 lg:py-6 xl:py-8 pagePadding`}
+      className={`flex flex-row z-[11] w-full items-center mb-2 md:mb-4 lg:mb-6 xl:mb-8 mt-1 md:mt-2 lg:mt-3 xl:mt-4 pagePadding`}
     >
       {/* side navigation bar */}
       <Sidebar
@@ -33,7 +33,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
         {/* {Brand} */}
 
         <motion.div
-          className="p-0 m-0"
+          className="w-2/6 sm:w-1/4 md:w-2/12 lg:3/12 xl:1/12"
           style={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -42,14 +42,11 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
             type: ANIM_TYPE,
           }}
         >
-          <img
-            src="/assets/logo.png"
-            alt=""
-            className="w-2/6 sm:w-1/4 md:w-3/12 lg:5/12 xl:1/12"
-          />
+          <img src="/assets/logo.png" alt="" />
         </motion.div>
 
         <motion.div
+          className="absolute lg:relative right-0 top-1/3 p-0 m-0 lg:hidden"
           style={{ x: +200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -59,7 +56,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
           }}
         >
           <span
-            className="absolute lg:relative right-0 material-symbols-outlined align-middle lg:hidden mr-2"
+            className="material-symbols-outlined align-middle lg:hidden"
             onClick={(e) => {
               e.preventDefault();
               setshowSideNav(!showSideNav);
