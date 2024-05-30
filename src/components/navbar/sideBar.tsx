@@ -1,3 +1,4 @@
+import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
 import { NavItem } from "./navigationBar";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -34,7 +35,11 @@ export const Sidebar = ({
           key={"kdbkjd.kdj"}
           variants={variants}
           animate="visible"
-          transition={{ duration: 0.2 }}
+          transition={{
+            duration: ANIM_DURATION,
+            type: ANIM_TYPE,
+            delay: DELAY,
+          }}
           exit="exit"
           initial="hidden"
         >
@@ -49,7 +54,12 @@ export const Sidebar = ({
               variants={sidebar}
               animate="visible"
               exit="exit"
-              transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
+              transition={{
+                type: ANIM_TYPE,
+                duration: ANIM_DURATION,
+                ease: "easeOut",
+                delay: DELAY,
+              }}
               initial="hidden"
             >
               <div

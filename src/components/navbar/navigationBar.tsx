@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Sidebar } from "./sideBar";
+import { motion } from "framer-motion";
+import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
 
 export interface NavItem {
   label: string;
@@ -16,7 +18,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
 
   return (
     <div
-      className={`flex flex-row z-[11] w-full items-center py-5 md:py-8 lg:py-8 xl:py-12 pagePadding`}
+      className={`flex flex-row z-[11] w-full items-center py-2 md:py-4 lg:py-6 xl:py-8 pagePadding`}
     >
       {/* side navigation bar */}
       <Sidebar
@@ -29,27 +31,56 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
 
       <div className="relative flex-1 flex justify-center lg:justify-between shadow-md items-center py-5 border-b-secondary border-b-2">
         {/* {Brand} */}
-        <img
-          src="/assets/logo.png"
-          alt=""
-          className="w-2/6 sm:w-1/4 md:w-3/12 lg:5/12 xl:1/12"
-        />
 
-        <span
-          className="absolute lg:relative right-0 material-symbols-outlined align-middle lg:hidden mr-2"
-          onClick={(e) => {
-            e.preventDefault();
-            setshowSideNav(!showSideNav);
+        <motion.div
+          className="p-0 m-0"
+          style={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: ANIM_DURATION,
+            delay: DELAY,
+            type: ANIM_TYPE,
           }}
         >
-          menu
-        </span>
+          <img
+            src="/assets/logo.png"
+            alt=""
+            className="w-2/6 sm:w-1/4 md:w-3/12 lg:5/12 xl:1/12"
+          />
+        </motion.div>
+
+        <motion.div
+          style={{ x: +200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: ANIM_DURATION,
+            delay: DELAY,
+            type: ANIM_TYPE,
+          }}
+        >
+          <span
+            className="absolute lg:relative right-0 material-symbols-outlined align-middle lg:hidden mr-2"
+            onClick={(e) => {
+              e.preventDefault();
+              setshowSideNav(!showSideNav);
+            }}
+          >
+            menu
+          </span>
+        </motion.div>
 
         {/* Navigation Items */}
         <div className="hidden md:justify-items-center gap-6 lg:flex flex-row ">
           {navItems.map((item: NavItem, index: number) => {
             return (
-              <div
+              <motion.div
+                style={{ x: +200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  duration: ANIM_DURATION,
+                  delay: DELAY,
+                  type: ANIM_TYPE,
+                }}
                 key={item.label}
                 className={` h-full w-full
                 flex justify-center items-center 
@@ -67,7 +98,7 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
                   </div>
                 )}
                 <span className=" font-poppins  ml-1">{item.label}</span>
-              </div>
+              </motion.div>
             );
           })}
         </div>
