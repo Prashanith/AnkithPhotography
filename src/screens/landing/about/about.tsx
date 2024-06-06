@@ -24,13 +24,13 @@ function About() {
   ];
   return (
     <div className="px-6 sm:p-0 sm:m-0 flex flex-col items-start justify-center space-y-36">
-      <div className="flex flex-row justify-between items-start">
+      <div className="mt-10 flex flex-col sm:flex-row justify-center sm:justify-between items-start">
         <img
           src="https://images.pexels.com/photos/1082663/pexels-photo-1082663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt=""
           className="grayscale w-full sm:w-1/2"
         />
-        <div className="bg-secondary text-black w-full sm:w-1/2 p-8 mt-32 opacity-70">
+        <div className="bg-secondary text-black w-full sm:w-1/2 p-8 mt-6 sm:mt-32 opacity-70">
           <p className="w-full text-lg text-left">
             <span className="title text-xl font-fancy sm:text-3xl ">
               Hey Folks, I am Ankith
