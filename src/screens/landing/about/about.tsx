@@ -83,7 +83,7 @@ function About() {
             THIS BEST DESCRIBES WHAT I DO
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-10 sm:space-x-16">
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-10 sm:space-y-0 sm:space-x-10 md:space-x-12 lg:space-x-14 xl:space-x-16">
           {data.map((d) => {
             return (
               <div className="works flex flex-col justify-center items-center hover:scale-125 w-full sm:w-1/3">
