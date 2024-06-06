@@ -1,6 +1,27 @@
 import "../../../components/gallery/gallery.css";
 
 function About() {
+  const data = [
+    {
+      title: "",
+      src: "https://assets.codepen.io/1506195/unsplash-1.jpg",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis dolore quis esse aut eligendi tenetur dolores facere rerum ex ipsum quam voluptatibus omnis, porro tempora? Nostrum, facere? Tempore, eos.",
+    },
+    {
+      title: "",
+      src: "https://assets.codepen.io/1506195/unsplash-1.jpg",
+
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis dolore quis esse aut eligendi tenetur dolores facere rerum ex ipsum quam voluptatibus omnis, porro tempora? Nostrum, facere? Tempore, eos.",
+    },
+    {
+      title: "",
+      src: "https://assets.codepen.io/1506195/unsplash-1.jpg",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci facilis dolore quis esse aut eligendi tenetur dolores facere rerum ex ipsum quam voluptatibus omnis, porro tempora? Nostrum, facere? Tempore, eos.",
+    },
+  ];
   return (
     <div className="px-6 sm:p-0 sm:m-0 flex flex-col items-start justify-center space-y-36">
       <div className="flex flex-row justify-between items-start">
@@ -60,51 +81,20 @@ function About() {
 
       <div className="flex flex-col justify-center space-y-10 items-center">
         <div>
-          <p className="text-4xl uppercase">THIS BEST DESCRIBES WHAT I DO</p>
+          <p className="text-4xl uppercase text-center">THIS BEST DESCRIBES WHAT I DO</p>
         </div>
-        <div className="flex flex-row justify-between items-center space-x-4">
-          <div className="works flex flex-col justify-center items-center hover:scale-125 w-1/3">
-            <div>
-              <img
-                src="https://assets.codepen.io/1506195/unsplash-1.jpg"
-                alt=""
-              />
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              alias quos perspiciatis iste odio veniam rem ex, consequatur
-              asperiores cum quis vero sit ratione est perferendis temporibus
-              eius tempora eveniet?
-            </p>
-          </div>
-          <div className="works flex flex-col justify-center items-center hover:scale-125 w-1/3">
-            <div>
-              <img
-                src="https://assets.codepen.io/1506195/unsplash-8.jpg"
-                alt=""
-              />
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              alias quos perspiciatis iste odio veniam rem ex, consequatur
-              asperiores cum quis vero sit ratione est perferendis temporibus
-              eius tempora eveniet?
-            </p>
-          </div>
-          <div className="works flex flex-col justify-center items-center hover:scale-125 w-1/3">
-            <div>
-              <img
-                src="https://assets.codepen.io/1506195/unsplash-6.jpg"
-                alt=""
-              />
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-              alias quos perspiciatis iste odio veniam rem ex, consequatur
-              asperiores cum quis vero sit ratione est perferendis temporibus
-              eius tempora eveniet?
-            </p>
-          </div>
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-10 sm:space-x-16">
+          {data.map((d) => {
+            return (
+              <div className="works flex flex-col justify-center items-center hover:scale-125 w-full sm:w-1/3">
+                <div className="title mb-8">{d.title}</div>
+                <div className="mb-8">
+                  <img src={d.src} alt="" className="grayscale" />
+                </div>
+                <p>{d.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
