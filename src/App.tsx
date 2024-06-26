@@ -1,22 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SplashScreen from "./screens/splash/splashScreen";
-import LandingPage from "./screens/landing/landing";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <SplashScreen />,
-  },
-  {
-    path: "home",
-    element: <LandingPage />,
-  },
-]);
+import { BrowserRouter } from "react-router-dom";
+import ApplicationRoutes from "./routes/ApplicationRoutes";
 
 function App() {
   return (
     <div className="min-h-screen w-full bg-primary text-secondary">
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <ApplicationRoutes />
+      </BrowserRouter>
     </div>
   );
 }
