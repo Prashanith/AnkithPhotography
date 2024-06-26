@@ -8,44 +8,92 @@ interface ImageProps {
 function Gallery() {
   const images: ImageProps[] = [
     {
-      src: "https://picsum.photos/id/1028/300/300",
+      src: "./assets/gallery_1.png",
       alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/15/300/300",
-      alt: "a waterfall and many rocks",
+      src: "./assets/gallery_2.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/1040/300/300",
-      alt: "a house on a mountain",
+      src: "./assets/gallery_3.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/106/300/300",
-      alt: "sime pink flowers",
+      src: "./assets/gallery_4.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/136/300/300",
-      alt: "big rocks with some trees",
+      src: "./assets/gallery_5.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/1039/300/300",
-      alt: "a waterfall, a lot of tree and a great view from the sky",
+      src: "./assets/gallery_6.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/110/300/300",
-      alt: "a cool landscape",
+      src: "./assets/gallery_7.png",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/1047/300/300",
-      alt: "inside a town between two big buildings",
+      src: "./assets/gallery_8.jpg",
+      alt: "a forest after an apocalypse",
     },
     {
-      src: "https://picsum.photos/id/1057/300/300",
-      alt: "a great view of the sea above the mountain",
+      src: "./assets/gallery_9.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_10.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_11.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_12.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_13.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_14.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_15.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_16.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_17.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_18.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_19.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_20.jpg",
+      alt: "a forest after an apocalypse",
+    },
+    {
+      src: "./assets/gallery_21.jpg",
+      alt: "a forest after an apocalypse",
     },
   ];
   return (
-    <div className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-12 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
+    <div className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-6 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
       {images.map((image) => {
         return (
           <motion.div
@@ -54,7 +102,7 @@ function Gallery() {
             className=" border-4"
           >
             <img
-              className="galleryImage aspect-square"
+              className="galleryImage"
               src={image.src}
               alt={image.alt}
             />
