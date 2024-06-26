@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { useFormik } from "formik";
 import { db } from "../../../config/firebaseConfig";
 

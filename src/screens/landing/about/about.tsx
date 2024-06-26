@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 
 function About() {
   return (
@@ -69,15 +68,6 @@ function About() {
       </div>
     </div>
   );
-}
-
-interface IAboutContentProps {
-  imagePath: string;
-  children: ReactNode;
-}
-
-function AboutContent({ imagePath, children }: IAboutContentProps) {
-  return <div></div>;
 }
 
 export default About;

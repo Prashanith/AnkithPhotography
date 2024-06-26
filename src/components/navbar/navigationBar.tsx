@@ -18,8 +18,6 @@ const Navbar = ({ navItems }: NavbarProps) => {
   const location = useLocation();
 
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
-
-  const isHome = location.pathname.includes("/home");
   
   return (
     <div
