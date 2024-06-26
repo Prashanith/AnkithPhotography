@@ -1,18 +1,44 @@
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { useFormik } from "formik";
+import { db } from "../../../config/firebaseConfig";
+
+interface IContactProps {
+  name: string;
+  email: string;
+  message: string;
+}
 
 function Contact() {
+  async function submitData(data: IContactProps) {
+    try {
+      const docRef = await addDoc(collection(db, "contact"), {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+      console.log(docRef.id);
+      alert("We received your request, we will contact you in a while");
+    } catch (error) {
+      alert("Unknown Error Occured. Please try again after sometime");
+    }
+  }
+
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       message: " ",
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      await submitData({
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      });
     },
   });
   return (
-    <div className="w-full pt-[10vh]">
+    <div className="w-full pt-[5vh]">
       <div className="flex flex-col justify-start items-start">
         <h2 className="uppercase text-xl lg:text-3xl mb-10">Contact Us</h2>
         <form
