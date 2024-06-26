@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="text-left text-amber-900 text-5xl"
+        className="text-left text-gray-900 text-5xl "
       >
         Onto to a new world
       </motion.p>
@@ -18,7 +18,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="text-left text-amber-900 text-6xl"
+        className="text-left text-gray-900 text-6xl"
       >
         Experience the Magic
       </motion.p>

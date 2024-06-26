@@ -34,8 +34,6 @@ function Contact() {
         name: values.name,
         email: values.email,
         message: values.message,
-      }).then((res) => {
-        console.log(values);
       });
     },
   });
@@ -74,7 +72,7 @@ function Contact() {
         <button
           className="submitButton mt-10"
           type="submit"
-          onClick={() => formik.submitForm()}
+          onClick={() => void formik.submitForm()}
         >
           SUBMIT
         </button>
