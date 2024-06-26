@@ -21,7 +21,6 @@ function Gallery() {
     },
     {
       src: "https://picsum.photos/id/106/300/300",
-
       alt: "sime pink flowers",
     },
     {
