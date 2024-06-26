@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Layout from "react-masonry-list";
 
 interface ImageProps {
   src: string;
@@ -6,6 +8,9 @@ interface ImageProps {
 }
 
 function Gallery() {
+  const [colCount, setColCount] = useState(4);
+  const [isLoading, setIsLoading] = useState(true);
+
   const images: ImageProps[] = [
     {
       src: "./assets/gallery_1.png",
@@ -92,24 +97,61 @@ function Gallery() {
       alt: "a forest after an apocalypse",
     },
   ];
+
+  function changeCols() {
+    if (innerWidth <= 640) {
+      setColCount(1);
+    } else if (innerWidth <= 768) {
+      setColCount(3);
+    } else {
+      setColCount(4);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", changeCols);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => {
+      window.removeEventListener("resize", changeCols);
+    };
+  }, []);
+
   return (
-    <div className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-6 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
-      {images.map((image) => {
-        return (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className=" border-4"
-          >
-            <img
-              loading="lazy"
-              className="galleryImage"
-              src={image.src}
-              alt={image.alt}
-            />
-          </motion.div>
-        );
-      })}
+    <div className="w-full">
+      {isLoading && (
+        <div className="py-[30vh] w-full flex justify-center items-center">
+          <img
+            src="/assets/loader.svg"
+            alt="loadingIcon"
+            height={40}
+            width={40}
+          />
+        </div>
+      )}
+      <Layout
+        colCount={colCount}
+        minWidth={100}
+        gap={10}
+        className={` ${
+          isLoading ? "opacity-0" : "opacity-100"
+        } transition-opacity`}
+        // className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-6 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4"
+        items={images.map((image) => {
+          return (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="box border-2 border-black w-full break-inside-avoid"
+            >
+              <img className="max-w-full" src={image.src} alt={image.alt} />
+            </motion.div>
+          );
+        })}
+      ></Layout>
     </div>
   );
 }
