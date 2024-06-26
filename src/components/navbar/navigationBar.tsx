@@ -11,8 +11,6 @@ export interface NavItem {
 
 interface NavbarProps {
   navItems: NavItem[] | [];
-  currentIndex: number;
-  navigate: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Navbar = ({ navItems }: NavbarProps) => {
