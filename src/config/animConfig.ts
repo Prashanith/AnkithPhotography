@@ -4,6 +4,7 @@ const fadeInConfig = {
   },
   visible: {
     opacity: 1,
+    
   },
 };
 

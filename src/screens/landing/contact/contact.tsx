@@ -29,11 +29,13 @@ function Contact() {
       email: "",
       message: " ",
     },
-    onSubmit: async (values) => {
-      await submitData({
+    onSubmit: (values) => {
+      void submitData({
         name: values.name,
         email: values.email,
         message: values.message,
+      }).then((res) => {
+        console.log(values);
       });
     },
   });
@@ -69,7 +71,11 @@ function Contact() {
             onChange={formik.handleChange}
           ></textarea>
         </form>
-        <button className="submitButton mt-10" type="submit">
+        <button
+          className="submitButton mt-10"
+          type="submit"
+          onClick={() => formik.submitForm()}
+        >
           SUBMIT
         </button>
       </div>

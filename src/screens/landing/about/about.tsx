@@ -1,19 +1,36 @@
+import { motion } from "framer-motion";
 
+motion;
 function About() {
   return (
-    <div className="flex flex-col items-start justify-center tracking-widest">
-      <div className="content">
-        <div className="w-full lg:w-1/2 relative">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 1, type: "spring" }}
+      className="flex flex-col items-start justify-center tracking-widest"
+    >
+      <motion.div className="content">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1, type: "spring" }}
+          className="w-full lg:w-1/2 relative"
+        >
           <img
             src="./assets/profile_4.jpg"
             alt="Ankith Magar Photography, Pre Wedding Wedding Maternity Photography Baby Shower Portrats Stills Candid  Best Photographer in Hyderabad, Amberpet Model Portfolio shoot Makeup photos"
             className="rounded-2xl"
           />
-        </div>
+        </motion.div>
 
         <div className="w-0 lg:w-1/12"></div>
 
-        <div className="w-full lg:w-1/3 text-left lg:pt-10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1, type: "spring" }}
+          className="w-full lg:w-1/3 text-left lg:pt-10"
+        >
           <p className="title text-4xl pb-6 calligraffitti-regular">
             Hey Folks, I am Ankith
           </p>
@@ -34,11 +51,16 @@ function About() {
             Let's collaborate to create stunning photographs that capture the
             beauty of your special moments.
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="mt-10 md:mt-16 lg:mt-20 xl:mt-24 flex flex-col-reverse lg:flex-row justify-center items-start space-x-0 space-y-6 lg:space-x-6 lg:space-y-0">
-        <div className="w-full lg:w-1/3 text-left md:pt-10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1, type: "spring" }}
+          className="w-full lg:w-1/3 text-left md:pt-10"
+        >
           <p className="title text-4xl pb-6 calligraffitti-regular">
             I Specialize In
           </p>
@@ -54,19 +76,24 @@ function About() {
             , meaningful photographs that tell your story. Lets collaborate and
             create images that resonate and inspire...
           </p>
-        </div>
+        </motion.div>
 
         <div className="w-0 lg:w-1/12"></div>
 
-        <div className="w-full lg:w-1/2 relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1, type: "spring" }}
+          className="w-full lg:w-1/2 relative"
+        >
           <img
             src="./assets/profile_5.jpeg"
             alt="Ankith Magar Photography, Pre Wedding Wedding Maternity Photography Baby Shower Portrats Stills Candid  Best Photographer in Hyderabad, Amberpet Model Portfolio shoot Makeup photos"
             className="rounded-2xl"
           />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
