@@ -77,3 +77,24 @@ label {
   transform: scale(1.2);
   z-index: 100;
 }
+
+.homeBg {
+  background-image: url("/assets/gallery_1.png");
+  background-size: cover;
+  min-height: 100vh;
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  @apply grayscale;
+}
+
+@media (min-width: 768px) {
+  .homeBg {
+    @apply grayscale;
+    background-image: url("/assets/gallery_9.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100%;
+    background-size: cover;
+  }
+}

@@ -18,7 +18,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
   const location = useLocation();
 
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
-  
+
   return (
     <div
       className={`flex flex-row z-[11] w-full items-center mb-2 md:mb-4 lg:mb-6 xl:mb-8 mt-1 md:mt-2 lg:mt-3 xl:mt-4 pagePadding`}
@@ -30,7 +30,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
         navItems={navItems}
       />
 
-      <div className="relative flex-1 flex justify-center lg:justify-between shadow-md items-center py-5 border-b-secondary border-b-2">
+      <div className="relative flex-1 flex justify-center lg:justify-between items-center py-5 border-b-secondary border-b-2">
         {/* {Brand} */}
 
         <motion.div
@@ -43,7 +43,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
             type: ANIM_TYPE,
           }}
         >
-          <img src="/assets/logo.png" alt="" />
+          <img src="/assets/logo.png" alt="" className="text-black"/>
         </motion.div>
 
         <motion.div
@@ -70,6 +70,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
         {/* Navigation Items */}
         <div className="hidden md:justify-items-center gap-6 lg:flex flex-row ">
           {navItems.map((item: NavItem) => {
+            const isHome = location.pathname.includes("home");
             const isActive = location.pathname.includes(item.path);
             return (
               <motion.div
@@ -81,7 +82,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
                   type: ANIM_TYPE,
                 }}
                 key={item.label}
-                className={` h-full w-full
+                className={` ${isHome ? " text-primary" : ""} h-full w-full
                 flex justify-center items-center 
                 p-5
                 relative
@@ -96,7 +97,13 @@ const Navbar = ({ navItems }: NavbarProps) => {
                     {" "}
                   </div>
                 )}
-                <span className=" font-poppins  ml-1">{item.label}</span>
+                <span
+                  className={`font-poppins  ml-1 ${
+                    isHome ? "text-primary" : ""
+                  } `}
+                >
+                  {item.label}
+                </span>
               </motion.div>
             );
           })}
