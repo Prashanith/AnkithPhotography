@@ -1,14 +1,10 @@
 import { useState } from "react";
-import Gallery from "./gallery/gallery";
-import Contact from "./contact/contact";
-import Stories from "./stories/stories";
-import About from "./about/about";
 import Footer from "./footer/footer";
 import Navbar from "../../components/navbar/navigationBar";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
+import { Outlet } from "react-router-dom";
 
 function LandingPage() {
-  const { scrollYProgress } = useScroll();
   const [currentIndex, setCurrentIndex] = useState(3);
   return (
     <motion.div className="px-4 sm:px-0 w-full md:w-10/12 mx-auto flex flex-col items-center justify-center">
@@ -32,14 +28,7 @@ function LandingPage() {
       />
 
       <div className="pagePadding">
-        {
-          {
-            0: <Gallery />,
-            1: <Contact />,
-            2: <Stories />,
-            3: <About />,
-          }[currentIndex]
-        }
+        <Outlet />
       </div>
       <Footer />
     </motion.div>

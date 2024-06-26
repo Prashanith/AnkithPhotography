@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
 import { NavItem } from "./navigationBar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,17 +7,12 @@ interface SidebarProps {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   navItems: NavItem[] | [];
-  navigate: React.Dispatch<React.SetStateAction<number>>;
-  currentIndex: number;
 }
 
-export const Sidebar = ({
-  show,
-  setShow,
-  navItems,
-  navigate,
-  currentIndex,
-}: SidebarProps) => {
+export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const variants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
@@ -86,19 +82,18 @@ export const Sidebar = ({
                 </div>
 
                 <div className="py-6">
-                  {navItems.map((item: NavItem, index: number) => {
-                    console.log(location.pathname);
-
+                  {navItems.map((item: NavItem) => {
+                    const isActive = location.pathname.includes(item.path);
                     return (
                       <div
                         className={`h-12 p-3  cursor-pointer flex justify-between items-center 
                           text-black
                           hover:bg-secondary rounded-[12px] ${
-                            index == currentIndex && "bg-secondary"
+                            isActive ? "bg-secondary" : ""
                           } `}
                         key={item.label}
                         onClick={() => {
-                          navigate(index);
+                          navigate(item.path);
                           setShow(false);
                         }}
                       >

@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Sidebar } from "./sideBar";
 import { motion } from "framer-motion";
 import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export interface NavItem {
   label: string;
+  path: string;
 }
 
 interface NavbarProps {
@@ -13,7 +15,10 @@ interface NavbarProps {
   navigate: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
+const Navbar = ({ navItems }: NavbarProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
 
   return (
@@ -25,8 +30,6 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
         show={showSideNav}
         setShow={setshowSideNav}
         navItems={navItems}
-        navigate={navigate}
-        currentIndex={currentIndex}
       />
 
       <div className="relative flex-1 flex justify-center lg:justify-between shadow-md items-center py-5 border-b-secondary border-b-2">
@@ -68,7 +71,8 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
 
         {/* Navigation Items */}
         <div className="hidden md:justify-items-center gap-6 lg:flex flex-row ">
-          {navItems.map((item: NavItem, index: number) => {
+          {navItems.map((item: NavItem) => {
+            const isActive = location.pathname.includes(item.path);
             return (
               <motion.div
                 style={{ x: +200, opacity: 0 }}
@@ -87,9 +91,9 @@ const Navbar = ({ navItems, currentIndex, navigate }: NavbarProps) => {
                 uppercase
                 anchor
                 `}
-                onClick={() => navigate(index)}
+                onClick={() => navigate(item.path)}
               >
-                {currentIndex == index && (
+                {isActive && (
                   <div className="h-[0.2rem] rounded-full  w-[90%] ml-[0.2rem] bottom-0 absolute  ">
                     {" "}
                   </div>
