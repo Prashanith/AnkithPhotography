@@ -43,7 +43,13 @@ const Navbar = ({ navItems }: NavbarProps) => {
             type: ANIM_TYPE,
           }}
         >
-          <img src="/assets/logo.png" alt="" className="text-black"/>
+          <img
+            src="/assets/logo.png"
+            alt=""
+            className={`text-black ${
+              location.pathname.includes("home") ? "grayscale brightness-0" : ""
+            }`}
+          />
         </motion.div>
 
         <motion.div

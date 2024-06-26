@@ -3,13 +3,10 @@ import { motion } from "framer-motion";
 motion;
 function About() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 1, type: "spring" }}
+    <div
       className="flex flex-col items-start justify-center tracking-widest"
     >
-      <motion.div className="content">
+      <div className="content">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -52,7 +49,7 @@ function About() {
             beauty of your special moments.
           </p>
         </motion.div>
-      </motion.div>
+      </div>
 
       <div className="mt-10 md:mt-16 lg:mt-20 xl:mt-24 flex flex-col-reverse lg:flex-row justify-center items-start space-x-0 space-y-6 lg:space-x-6 lg:space-y-0">
         <motion.div
@@ -93,7 +90,7 @@ function About() {
           />
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
