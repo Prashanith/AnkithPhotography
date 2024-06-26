@@ -27,7 +27,7 @@ function LandingPage() {
         ]}
       />
 
-      <div className="pagePadding">
+      <div className="pagePadding py-4 md:py-0 lg:py-0 xl:py-0">
         <Outlet />
       </div>
       <Footer />

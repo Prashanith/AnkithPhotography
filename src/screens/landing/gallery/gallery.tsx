@@ -46,11 +46,19 @@ function Gallery() {
     },
   ];
   return (
-    <div className="gallery m-0 p-0 w-full flex flex-wrap gap-12 px-6 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
+    <div className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-12 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
       {images.map((image) => {
         return (
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-            <img className="galleryImage" src={image.src} alt={image.alt} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className=" border-4"
+          >
+            <img
+              className="galleryImage aspect-square"
+              src={image.src}
+              alt={image.alt}
+            />
           </motion.div>
         );
       })}
