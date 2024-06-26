@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-family: "Aclonica", sans-serif;
+  font-weight: 300;
   font-style: normal;
   line-height: 1.5;
   font-synthesis: none;
@@ -39,7 +39,7 @@ body {
   }
 
   .content {
-    @apply mt-6 md:mt-8 lg:mt-10 xl:mt-12 flex flex-col sm:flex-row justify-center items-start space-x-0 space-y-6 sm:space-x-6 sm:space-y-0;
+    @apply mt-6 md:mt-8 lg:mt-10 xl:mt-12 flex flex-col lg:flex-row justify-center items-start space-x-0 space-y-6 lg:space-x-6 lg:space-y-0;
   }
 
   .aboutText {

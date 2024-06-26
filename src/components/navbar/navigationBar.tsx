@@ -19,6 +19,8 @@ const Navbar = ({ navItems }: NavbarProps) => {
 
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
 
+  const isHome = location.pathname.includes("/home");
+  
   return (
     <div
       className={`flex flex-row z-[11] w-full items-center mb-2 md:mb-4 lg:mb-6 xl:mb-8 mt-1 md:mt-2 lg:mt-3 xl:mt-4 pagePadding`}

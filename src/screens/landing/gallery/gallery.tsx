@@ -102,6 +102,7 @@ function Gallery() {
             className=" border-4"
           >
             <img
+              loading="lazy"
               className="galleryImage"
               src={image.src}
               alt={image.alt}
