@@ -4,14 +4,13 @@ const fadeInConfig = {
   },
   visible: {
     opacity: 1,
-    
   },
 };
 
-const ANIM_DURATION = 1.5;
+const ANIM_DURATION = 2;
 
 const DELAY = 0;
 
-const ANIM_TYPE = "tween";
+const ANIM_TYPE = "spring";
 
 export { ANIM_DURATION, DELAY, ANIM_TYPE, fadeInConfig };

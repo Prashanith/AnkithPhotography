@@ -1,6 +1,8 @@
 import { addDoc, collection } from "firebase/firestore";
 import { useFormik } from "formik";
 import { db } from "../../../config/firebaseConfig";
+import { motion } from "framer-motion";
+import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
 
 interface IContactProps {
   name: string;
@@ -45,37 +47,70 @@ function Contact() {
           className="flex flex-col justify-start items-start space-y-2"
           onSubmit={formik.handleSubmit}
         >
-          <label htmlFor="name">Your Name</label>
-          <input
+          <motion.label
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
+            htmlFor="name"
+          >
+            Your Name
+          </motion.label>
+          <motion.input
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
             type="text"
             name="name"
             id="name"
             value={formik.values.name}
             onChange={formik.handleChange}
           />
-          <label htmlFor="email">Your Email</label>
-          <input
+          <motion.label
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
+            htmlFor="email"
+          >
+            Your Email
+          </motion.label>
+          <motion.input
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
             type="email"
             name="email"
             id="email"
             value={formik.values.email}
             onChange={formik.handleChange}
           />
-          <label htmlFor="message">Your Message</label>
-          <textarea
+          <motion.label
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
+            htmlFor="message"
+          >
+            Your Message
+          </motion.label>
+          <motion.textarea
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
             name="message"
             id="message"
             value={formik.values.message}
             onChange={formik.handleChange}
-          ></textarea>
+          ></motion.textarea>
         </form>
-        <button
+        <motion.button
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="submitButton mt-10"
           type="submit"
           onClick={() => void formik.submitForm()}
         >
           SUBMIT
-        </button>
+        </motion.button>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
               animate="visible"
               exit="exit"
               transition={{
-                type: ANIM_TYPE,
+                type:"tween",
                 duration: ANIM_DURATION,
                 ease: "easeOut",
                 delay: DELAY,

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Layout from "react-masonry-list";
+import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
 
 interface ImageProps {
   src: string;
@@ -113,7 +114,7 @@ function Gallery() {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1500);
 
     return () => {
       window.removeEventListener("resize", changeCols);
@@ -144,7 +145,8 @@ function Gallery() {
           return (
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
               className="box border-2 border-black w-full break-inside-avoid"
             >
               <img className="max-w-full" src={image.src} alt={image.alt} />

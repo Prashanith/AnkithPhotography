@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
+import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
 
 motion;
 function About() {
   return (
-    <div
-      className="flex flex-col items-start justify-center tracking-widest"
-    >
+    <div className="flex flex-col items-start justify-center tracking-widest">
       <div className="content">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, type: "spring" }}
+          transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/2 relative"
         >
           <img
@@ -25,7 +24,7 @@ function About() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, type: "spring" }}
+          transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/3 text-left lg:pt-10"
         >
           <p className="title text-4xl pb-6 calligraffitti-regular">
@@ -55,7 +54,7 @@ function About() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, type: "spring" }}
+          transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/3 text-left md:pt-10"
         >
           <p className="title text-4xl pb-6 calligraffitti-regular">
@@ -80,7 +79,7 @@ function About() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, type: "spring" }}
+          transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/2 relative"
         >
           <img
