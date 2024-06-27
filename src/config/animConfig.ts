@@ -8,7 +8,7 @@ const fadeInConfig = {
   },
 };
 
-const ANIM_DURATION = 1;
+const ANIM_DURATION = 1.5;
 
 const DELAY = 0;
 

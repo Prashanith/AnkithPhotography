@@ -1,9 +1,19 @@
+import { useLocation } from "react-router-dom";
+
 function Footer() {
+  const location = useLocation();
   return (
-    <section>
-      <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+    <section className="mt-20">
+      <div
+        className={`max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 ${
+          location.pathname.includes("home") ? "text-primary" : "text-secondary"
+        }`}
+      >
         <div className="flex justify-center mt-8 space-x-6">
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          <a
+            href="https://instagram.com/ankithz_photography"
+            className="hover:text-gray-500"
+          >
             <span className="sr-only">Facebook</span>
             <svg
               className="w-6 h-6"
@@ -18,7 +28,10 @@ function Footer() {
               ></path>
             </svg>
           </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          <a
+            href="https://instagram.com/ankithz_photography"
+            className="hover:text-gray-500"
+          >
             <span className="sr-only">Instagram</span>
             <svg
               className="w-6 h-6"
@@ -45,8 +58,8 @@ function Footer() {
             </svg>
           </a> */}
         </div>
-        <p className="mt-8 text-base leading-6 text-center text-gray-400">
-          © {new Date().getFullYear()} Ankith Photography. All rights reserved.
+        <p className="mt-8 text-base leading-6 text-center">
+          © {new Date().getFullYear()} AnkithzPhotography. All rights reserved.
         </p>
       </div>
     </section>
