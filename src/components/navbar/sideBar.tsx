@@ -51,7 +51,7 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
               animate="visible"
               exit="exit"
               transition={{
-                type:"tween",
+                type: "tween",
                 duration: ANIM_DURATION,
                 ease: "easeOut",
                 delay: DELAY,
@@ -71,7 +71,8 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
                   <img
                     src="/assets/logo.png"
                     alt=""
-                    className="w-2/6 sm:w-3/5 md:w-3/12 xl:1/12"
+                    onClick={() => navigate("/home")}
+                    className="cursor-pointer w-2/6 sm:w-3/5 md:w-3/12 xl:1/12"
                   />{" "}
                   <span
                     className="material-symbols-outlined align-middle md:hidden mr-2 "

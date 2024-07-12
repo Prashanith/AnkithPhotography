@@ -34,7 +34,8 @@ const Navbar = ({ navItems }: NavbarProps) => {
         {/* {Brand} */}
 
         <motion.div
-          className="w-2/6 sm:w-1/4 md:w-2/12 lg:3/12 xl:1/12"
+          onClick={() => navigate("/home")}
+          className="w-2/6 sm:w-1/4 md:w-2/12 lg:3/12 xl:1/12 cursor-pointer"
           style={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{

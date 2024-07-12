@@ -1,32 +1,29 @@
+import { FaWhatsapp } from "react-icons/fa";
+import { MdMailOutline, MdPhoneIphone } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
 function Footer() {
   const location = useLocation();
   return (
-    <section className="mt-20">
+    <section className="mt-0">
       <div
         className={`max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 ${
           location.pathname.includes("home") ? "text-primary" : "text-secondary"
         }`}
       >
         <div className="flex justify-center mt-8 space-x-6">
+          <a href="tel:+918374747331">
+            <MdPhoneIphone size={20} />
+          </a>
           <a
-            href="https://instagram.com/ankithz_photography"
-            className="hover:text-gray-500"
+            className=""
+            href="https://web.whatsapp.com/send?phone=8374747331"
+            target="_blank"
           >
-            <span className="sr-only">Facebook</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+            <FaWhatsapp size={22} />
+          </a>
+          <a href="mailto:ankithmagar100@gmail.com">
+            <MdMailOutline size={22} />
           </a>
           <a
             href="https://instagram.com/ankithz_photography"

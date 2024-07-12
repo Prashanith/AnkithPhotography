@@ -110,6 +110,7 @@ function Gallery() {
   }
 
   useEffect(() => {
+    changeCols();
     window.addEventListener("resize", changeCols);
 
     setTimeout(() => {
@@ -140,7 +141,6 @@ function Gallery() {
         className={` ${
           isLoading ? "opacity-0" : "opacity-100"
         } transition-opacity`}
-        // className="m-0 p-0 w-full flex flex-wrap justify-center items-center gap-6 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:gap-4"
         items={images.map((image) => {
           return (
             <motion.div

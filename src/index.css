@@ -45,6 +45,10 @@ body {
   .aboutText {
     @apply text-lg sm:text-xl;
   }
+
+  .contactAnchor{
+    @apply flex flex-row justify-start items-center border-secondary text-lg text-secondary shadow-md shadow-secondary rounded-lg min-w-[280px] px-5 py-3;
+  }
 }
 
 input,
@@ -81,7 +85,7 @@ label {
 .homeBg {
   background-image: url("/assets/gallery_1.png");
   background-size: cover;
-  min-height: 100vh;
+  max-height: 100vh;
   max-width: 100%;
   background-size: cover;
   background-position: center;
