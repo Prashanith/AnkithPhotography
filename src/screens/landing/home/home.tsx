@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ANIM_DURATION, ANIM_TYPE } from "../../config/animConfig";
+import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
 
 function Home() {
   const navigate = useNavigate();

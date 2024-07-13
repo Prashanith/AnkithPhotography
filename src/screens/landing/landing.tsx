@@ -16,22 +16,43 @@ function LandingPage() {
             {
               label: "Home",
               path: "/home",
+              children: [],
             },
             {
               label: "Gallery",
               path: "/gallery",
+              children: [
+                {
+                  label: "Pre Wedding",
+                  path: "/gallery/preWedding",
+                  children: [],
+                },
+                {
+                  label: "Portrait",
+                  path: "/gallery/portrait",
+                  children: [],
+                },
+                {
+                  label: "Pre Birthday",
+                  path: "/gallery/preBirthday",
+                  children: [],
+                },
+              ],
             },
             {
               label: "Contact",
               path: "/contact",
+              children: [],
             },
             {
               label: "Stories",
               path: "stories",
+              children: [],
             },
             {
               label: "About",
               path: "about",
+              children: [],
             },
           ]}
         />

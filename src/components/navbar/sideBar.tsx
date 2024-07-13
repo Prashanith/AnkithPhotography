@@ -1,7 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
 import { NavItem } from "./navigationBar";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 interface SidebarProps {
   show: boolean;
@@ -10,7 +12,6 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const variants = {
@@ -82,26 +83,16 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
                   </span>
                 </div>
 
-                <div className="py-6">
+                <div className="py-6 text-base">
                   {navItems.map((item: NavItem) => {
-                    const isActive = location.pathname.includes(item.path);
                     return (
-                      <div
-                        className={`h-12 p-3  cursor-pointer flex justify-between items-center 
-                          text-black
-                          hover:bg-secondary rounded-[12px] ${
-                            isActive ? "bg-secondary" : ""
-                          } `}
+                      <NavItemView
                         key={item.label}
-                        onClick={() => {
-                          navigate(item.path);
-                          setShow(false);
-                        }}
-                      >
-                        <span className="text-white text-xl font-medium ml-1">
-                          {item.label}
-                        </span>
-                      </div>
+                        label={item.label}
+                        path={item.path}
+                        children={item.children}
+                        callback={() => setShow(false)}
+                      />
                     );
                   })}
                 </div>
@@ -113,3 +104,89 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
     </AnimatePresence>
   );
 };
+
+interface INavItemViewProps {
+  items: NavItem[];
+}
+
+function NavItemsView({ items, callback }: INavItemViewProps & INavCallback) {
+  return (
+    <div className="flex flex-col justify-start items-start">
+      {items.map((item: NavItem) => (
+        <NavItemView
+          key={item.label}
+          label={item.label}
+          path={item.path}
+          children={item.children}
+          callback={callback}
+        />
+      ))}
+    </div>
+  );
+}
+
+interface INavCallback {
+  callback: () => void;
+}
+
+function NavItemView({
+  label,
+  path,
+  children,
+  callback,
+}: NavItem & INavCallback) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const navigate = useNavigate();
+  const isActive = location.pathname.includes(path);
+
+  useEffect(() => {
+    if (children.length > 0) {
+      children.forEach((e) => {
+        if (location.pathname.includes(e.path)) {
+          setIsVisible(true);
+        }
+      });
+    }
+  }, [children]);
+
+  return (
+    <motion.div
+      style={{ x: +200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        duration: ANIM_DURATION,
+        delay: 0.2,
+        type: ANIM_TYPE,
+      }}
+      className="w-full"
+      key={label}
+    >
+      <div
+        className={`min-h-12 p-3 cursor-pointer flex justify-between items-center text-white 
+        rounded-[12px] ${
+          isActive && children.length == 0 ? "underline underline-offset-8" : ""
+        }`}
+        onClick={() => {
+          if (children.length == 0) {
+            navigate(path);
+            callback();
+          } else {
+            setIsVisible((prev) => !prev);
+          }
+        }}
+      >
+        <p className="flex flex-row justify-between items-center">
+          <span>{label}</span>
+          {children.length > 0 && <FaChevronDown className="ml-4 text-xs" />}
+        </p>
+      </div>
+
+      {children.length > 0 && isVisible && (
+        <div className="ml-6 rounded-lg w-full">
+          <NavItemsView items={children} callback={callback} />
+        </div>
+      )}
+    </motion.div>
+  );
+}

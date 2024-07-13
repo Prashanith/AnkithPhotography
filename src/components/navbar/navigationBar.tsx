@@ -3,10 +3,12 @@ import { Sidebar } from "./sideBar";
 import { motion } from "framer-motion";
 import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
 
 export interface NavItem {
   label: string;
   path: string;
+  children: NavItem[];
 }
 
 interface NavbarProps {
@@ -35,7 +37,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
 
         <motion.div
           onClick={() => navigate("/home")}
-          className="w-2/6 sm:w-1/4 md:w-2/12 lg:3/12 xl:1/12 cursor-pointer"
+          className="w-1/4 sm:w-1/4 md:w-2/12 lg:3/12 xl:1/12 cursor-pointer"
           style={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
@@ -75,49 +77,86 @@ const Navbar = ({ navItems }: NavbarProps) => {
         </motion.div>
 
         {/* Navigation Items */}
-        <div className="hidden md:justify-items-center gap-6 lg:flex flex-row ">
-          {navItems.map((item: NavItem) => {
-            const isHome = location.pathname.includes("home");
-            const isActive = location.pathname.includes(item.path);
-            return (
-              <motion.div
-                style={{ x: +200, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{
-                  duration: ANIM_DURATION,
-                  delay: DELAY,
-                  type: ANIM_TYPE,
-                }}
-                key={item.label}
-                className={` ${isHome ? " text-primary" : ""} h-full w-full
-                flex justify-center items-center 
-                p-5
-                relative
-                cursor-pointer 
-                uppercase
-                anchor
-                `}
-                onClick={() => navigate(item.path)}
-              >
-                {isActive && (
-                  <div className="h-[0.2rem] rounded-full  w-[90%] ml-[0.2rem] bottom-0 absolute  ">
-                    {" "}
-                  </div>
-                )}
-                <span
-                  className={`font-poppins  ml-1 ${
-                    isHome ? "text-primary" : ""
-                  } `}
-                >
-                  {item.label}
-                </span>
-              </motion.div>
-            );
-          })}
+        <div className="hidden lg:flex justify-center md:items-center md:flex-row">
+          {navItems.map((item) => (
+            <NavItemView
+              key={item.label}
+              label={item.label}
+              path={item.path}
+              children={item.children}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 };
+
+interface INavItemViewProps {
+  items: NavItem[];
+}
+
+function NavItemsView({ items }: INavItemViewProps) {
+  return (
+    <div className="flex flex-col justify-start items-start">
+      {items.map((item: NavItem) => (
+        <NavItemView
+          label={item.label}
+          path={item.path}
+          children={item.children}
+        />
+      ))}
+    </div>
+  );
+}
+
+function NavItemView({ label, path, children }: NavItem) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const navigate = useNavigate();
+  const isHome = location.pathname.includes("/home");
+  const isActive = location.pathname.includes(path);
+  
+  return (
+    <motion.div
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+      style={{ x: +200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        duration: ANIM_DURATION,
+        delay: DELAY,
+        type: ANIM_TYPE,
+      }}
+      key={label}
+      className={`
+        ${isActive ? "underline" : "no-underline"}
+        ${isHome ? "text-primary" : "text-secondary"} h-full w-full
+        flex justify-start items-center p-5 relative cursor-pointer 
+        uppercase anchor`}
+      onClick={() =>
+        children.length == 0 ? navigate(path) : setIsVisible(true)
+      }
+    >
+      <span
+        className={`font-poppins ml-1 flex flex-row justify-center items-center`}
+      >
+        {label}
+        {children.length > 0 && <FaChevronDown className="ml-2 text-xs" />}
+      </span>
+
+      {children.length > 0 && isVisible && (
+        <div
+          className={`absolute top-full left-0 ${
+            isHome ? "bg-white shadow-sm shadow-secondary " : "bg-primary drop-shadow-sm shadow-secondary"
+          } rounded-lg whitespace-nowrap`}
+        >
+          {/* {JSON.stringify(isHome)} */}
+          <NavItemsView items={children} />
+        </div>
+      )}
+    </motion.div>
+  );
+}
 
 export default Navbar;

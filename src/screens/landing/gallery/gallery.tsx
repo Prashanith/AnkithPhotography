@@ -2,100 +2,145 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Layout from "react-masonry-list";
 import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
+import { useParams } from "react-router-dom";
 
 interface ImageProps {
   src: string;
   alt: string;
+  type: ImageType;
+}
+
+enum ImageType {
+  Any,
+  PreWedding,
+  Portrait,
+  Prebirthday,
 }
 
 function Gallery() {
+  const params = useParams();
   const [colCount, setColCount] = useState(4);
   const [isLoading, setIsLoading] = useState(true);
+  const [galleryType, setGalleryType] = useState(ImageType.Any);
+
+  function mapParamtoEnum(param: string) {
+    switch (param) {
+      case "preWedding":
+        return ImageType.PreWedding;
+      case "portrait":
+        return ImageType.Portrait;
+      case "preBirthday":
+        return ImageType.Prebirthday;
+      default:
+        return ImageType.Any;
+    }
+  }
 
   const images: ImageProps[] = [
     {
-      src: "./assets/gallery_1.png",
+      src: "../assets/gallery_1.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_2.png",
+      src: "../assets/gallery_2.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_3.png",
+      src: "../assets/gallery_3.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_4.png",
+      src: "../assets/gallery_4.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_5.png",
+      src: "../assets/gallery_5.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_6.png",
+      src: "../assets/gallery_6.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_7.png",
+      src: "../assets/gallery_7.png",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_8.jpg",
+      src: "../assets/gallery_8.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_9.jpg",
+      src: "../assets/gallery_9.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_10.jpg",
+      src: "../assets/gallery_10.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_11.jpg",
+      src: "../assets/gallery_11.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_12.jpg",
+      src: "../assets/gallery_12.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_13.jpg",
+      src: "../assets/gallery_13.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.PreWedding,
     },
     {
-      src: "./assets/gallery_14.jpg",
+      src: "../assets/gallery_14.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_15.jpg",
+      src: "../assets/gallery_15.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_16.jpg",
+      src: "../assets/gallery_16.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_17.jpg",
+      src: "../assets/gallery_17.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Prebirthday,
     },
     {
-      src: "./assets/gallery_18.jpg",
+      src: "../assets/gallery_18.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Prebirthday,
     },
     {
-      src: "./assets/gallery_19.jpg",
+      src: "../assets/gallery_19.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_20.jpg",
+      src: "../assets/gallery_20.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
     {
-      src: "./assets/gallery_21.jpg",
+      src: "../assets/gallery_21.jpg",
       alt: "a forest after an apocalypse",
+      type: ImageType.Portrait,
     },
   ];
 
@@ -110,6 +155,8 @@ function Gallery() {
   }
 
   useEffect(() => {
+    const type: ImageType = mapParamtoEnum(params["type"] ?? "any");
+    setGalleryType(type);
     changeCols();
     window.addEventListener("resize", changeCols);
 
@@ -120,7 +167,7 @@ function Gallery() {
     return () => {
       window.removeEventListener("resize", changeCols);
     };
-  }, []);
+  }, [params]);
 
   return (
     <div className="w-full">
@@ -141,18 +188,22 @@ function Gallery() {
         className={` ${
           isLoading ? "opacity-0" : "opacity-100"
         } transition-opacity`}
-        items={images.map((image) => {
-          return (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-              className="box border-2 border-black w-full break-inside-avoid"
-            >
-              <img className="max-w-full" src={image.src} alt={image.alt} />
-            </motion.div>
-          );
-        })}
+        items={images
+          .filter((x) =>
+            galleryType == ImageType.Any ? true : x.type == galleryType
+          )
+          .map((image) => {
+            return (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
+                className="box border-2 border-black w-full break-inside-avoid"
+              >
+                <img className="max-w-full" src={image.src} alt={image.alt} />
+              </motion.div>
+            );
+          })}
       ></Layout>
     </div>
   );
