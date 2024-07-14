@@ -24,7 +24,7 @@ function Home() {
         Discover the art of photography
       </motion.p>
       <button
-        className="bg-primary uppercase px-4 py-2 mt-10 rounded-lg text-base rounded-md; text-primary"
+        className="bg-primary uppercase px-4 py-2 mt-10 rounded-lg text-base rounded-md; text-tertiary"
         onClick={() => navigate("/gallery")}
       >
         KNOW MORE
