@@ -27,11 +27,11 @@ body {
 
 @layer utilities {
   .anchor {
-    @apply uppercase text-secondary hover:underline transform hover:scale-125 scale-100 animate-none underline-offset-8;
+    @apply uppercase text-primary hover:underline transform hover:scale-125 scale-100 animate-none underline-offset-8;
   }
 
   .submitButton {
-    @apply bg-secondary text-primary uppercase px-4 py-2 mt-10  text-base rounded-md;
+    @apply bg-primary text-secondary uppercase px-4 py-2 mt-10  text-base rounded-md;
   }
 
   .pagePadding {
@@ -46,8 +46,8 @@ body {
     @apply text-lg sm:text-xl;
   }
 
-  .contactAnchor{
-    @apply flex flex-row justify-start items-center border-secondary text-lg text-secondary shadow-md shadow-secondary rounded-lg min-w-[280px] px-5 py-3;
+  .contactAnchor {
+    @apply flex flex-row justify-start items-center border-primary text-lg text-primary shadow-md shadow-primary rounded-lg min-w-[280px] px-5 py-3;
   }
 }
 
@@ -57,7 +57,7 @@ textarea {
   font-size: 3em;
   border: none;
   border-radius: 4px;
-  @apply text-base px-3 py-2 text-tertiary w-[80vw] sm:w-[450px];
+  @apply text-base px-3 py-2 text-secondary w-[80vw] sm:w-[450px];
 }
 
 input:hover,

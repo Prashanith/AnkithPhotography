@@ -198,7 +198,7 @@ function Gallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-                className="box border-2 border-black w-full break-inside-avoid"
+                className="box border-2 border-secondary w-full break-inside-avoid"
               >
                 <img className="max-w-full" src={image.src} alt={image.alt} />
               </motion.div>

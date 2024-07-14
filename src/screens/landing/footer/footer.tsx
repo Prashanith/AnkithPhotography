@@ -8,7 +8,7 @@ function Footer() {
     <section className="mt-0">
       <div
         className={`max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 ${
-          location.pathname.includes("home") ? "text-primary" : "text-secondary"
+          location.pathname.includes("home") ? "text-secondary" : "text-primary"
         }`}
       >
         <div className="flex justify-center mt-8 space-x-6">

@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#100F0F",
-        secondary: "#F17EA6",
-        tertiary: "#20262E",
+        primary: "#F17EA6",
+        secondary: "#0C0C0C",
+        tertiary: "#FCF8F3",
       },
       backgroundImage: {
         homeBgOne: "url('/assets/galley_1.png')",

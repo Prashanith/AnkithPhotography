@@ -32,7 +32,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
         navItems={navItems}
       />
 
-      <div className="relative flex-1 flex justify-center lg:justify-between items-center py-5 border-b-secondary border-b-2">
+      <div className="relative flex-1 flex justify-center lg:justify-between items-center py-5 border-b-primary border-b-2">
         {/* {Brand} */}
 
         <motion.div
@@ -49,7 +49,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
           <img
             src="/assets/logo.png"
             alt=""
-            className={`text-black ${
+            className={`text-secondary ${
               location.pathname.includes("home") ? "grayscale brightness-0" : ""
             }`}
           />
@@ -131,7 +131,7 @@ function NavItemView({ label, path, children }: NavItem) {
       key={label}
       className={`
         ${isActive ? "underline" : "no-underline"}
-        ${isHome ? "text-primary" : "text-secondary"} h-full w-full
+        ${isHome ? "text-secondary" : "text-primary"} h-full w-full
         flex justify-start items-center p-5 relative cursor-pointer 
         uppercase anchor`}
       onClick={() =>
@@ -148,7 +148,7 @@ function NavItemView({ label, path, children }: NavItem) {
       {children.length > 0 && isVisible && (
         <div
           className={`absolute top-full left-0 ${
-            isHome ? "bg-white shadow-sm shadow-secondary " : "bg-primary drop-shadow-sm shadow-secondary"
+            isHome ? "bg-tertiary shadow-sm shadow-primary" : "bg-secondary shadow-primary/10 shadow-lg"
           } rounded-lg whitespace-nowrap`}
         >
           {/* {JSON.stringify(isHome)} */}

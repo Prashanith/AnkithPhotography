@@ -63,7 +63,7 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
-                className="w-80 h-screen bg-primary p-6 border-r-[1px] border-secondary"
+                className="w-80 h-screen bg-secondary p-6 border-r-[1px] border-primary"
               >
                 <div
                   id="ARMA-Logo"
@@ -163,7 +163,7 @@ function NavItemView({
       key={label}
     >
       <div
-        className={`min-h-12 p-3 cursor-pointer flex justify-between items-center text-white 
+        className={`min-h-12 p-3 cursor-pointer flex justify-between items-center text-primary 
         rounded-[12px] ${
           isActive && children.length == 0 ? "underline underline-offset-8" : ""
         }`}
