@@ -73,7 +73,7 @@ export const Sidebar = ({ show, setShow, navItems }: SidebarProps) => {
                     src="/assets/logo.png"
                     alt=""
                     onClick={() => navigate("/home")}
-                    className="cursor-pointer w-2/6 sm:w-3/5 md:w-3/12 xl:1/12"
+                    className="cursor-pointer w-2/6 sm:w-3/5 md:w-3/12 xl:1/12 text-secondary grayscale brightness-0"
                   />{" "}
                   <span
                     className="material-symbols-outlined align-middle md:hidden mr-2 "

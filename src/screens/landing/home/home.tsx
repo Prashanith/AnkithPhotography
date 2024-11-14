@@ -5,12 +5,12 @@ import { ANIM_DURATION, ANIM_TYPE } from "../../../config/animConfig";
 function Home() {
   const navigate = useNavigate();
   return (
-    <div className="z-0 min-h-[90vh] flex justify-center items-start md:items-end flex-col">
+    <div className="z-0 min-h-[90vh] flex justify-center items-start md:items-end flex-col text-primary">
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-        className="text-left md:text-right text-gray-900 text-6xl font-bold"
+        className="text-left md:text-right text-6xl font-bold"
       >
         Lens & Light
       </motion.p>
@@ -19,7 +19,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-        className="text-left md:text-right text-gray-900 text-5xl lg:text-6xl cursive-font"
+        className="text-left md:text-right text-5xl lg:text-6xl cursive-font"
       >
         Discover the art of photography
       </motion.p>

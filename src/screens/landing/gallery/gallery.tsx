@@ -198,9 +198,9 @@ function Gallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-                className="box border-2 border-secondary w-full break-inside-avoid"
+                className="box  hover:scale-110 transition-all duration-200 w-full break-inside-avoid"
               >
-                <img className="max-w-full" src={image.src} alt={image.alt} />
+                <img className="max-w-full shadow-lg rounded-md" src={image.src} alt={image.alt} />
               </motion.div>
             );
           })}
