@@ -49,9 +49,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
           <img
             src="/assets/logo.png"
             alt=""
-            className={`text-secondary ${
-              location.pathname.includes("home") ? "grayscale brightness-0" : ""
-            }`}
+            className={`text-secondary grayscale brightness-0`}
           />
         </motion.div>
 

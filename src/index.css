@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: "Aclonica", sans-serif;
-  font-weight: 300;
+  font-family: "Syncopate", sans-serif;
+  font-weight: 400;
   font-style: normal;
   line-height: 1.5;
   font-synthesis: none;
@@ -12,11 +15,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  @apply text-sm;
+  --d-s-red: #d90102;
+    --d-s-white: #f6f6f2;
+    --d-s-black: #212121;
+    --d-s-deep-black: #020202;
+    --d-s-neutral-gray: #ececec;
 }
 
-.calligraffitti-regular {
-  font-family: "Calligraffitti", cursive;
-  font-weight: 400;
+.cursive-font {
+  font-family: "Charm", cursive;
+  font-weight: 700;
   font-style: normal;
 }
 

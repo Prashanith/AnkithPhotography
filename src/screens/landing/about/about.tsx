@@ -27,7 +27,7 @@ function About() {
           transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/3 text-left lg:pt-10"
         >
-          <p className="title text-4xl pb-6 calligraffitti-regular">
+          <p className="title text-4xl pb-6 cursive-font">
             Hey Folks, I am Ankith
           </p>
           <p className="aboutText">
@@ -57,7 +57,7 @@ function About() {
           transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
           className="w-full lg:w-1/3 text-left md:pt-10"
         >
-          <p className="title text-4xl pb-6 calligraffitti-regular">
+          <p className="title text-4xl pb-6 cursive-font">
             I Specialize In
           </p>
           <p className="aboutText">

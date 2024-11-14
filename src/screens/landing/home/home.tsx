@@ -10,7 +10,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-        className="text-left md:text-right text-gray-900 text-6xl lg:text-7xl"
+        className="text-left md:text-right text-gray-900 text-6xl lg:text-7xl font-bold cursive-font"
       >
         Lens & Light:
       </motion.p>
@@ -19,7 +19,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-        className="text-left md:text-right text-gray-900 text-5xl lg:text-6xl"
+        className="text-left md:text-right text-gray-900 text-5xl lg:text-6xl cursive-font"
       >
         Discover the art of photography
       </motion.p>
