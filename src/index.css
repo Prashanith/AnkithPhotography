@@ -8,7 +8,7 @@
 
 :root {
   font-family: "Syncopate", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   line-height: 1.5;
   font-synthesis: none;
@@ -105,7 +105,7 @@ label {
   max-height: 100vh;
   max-width: 100%;
   background-size: cover;
-  background-position: center;
+  background-position:bottom;
   @apply grayscale;
 }
 

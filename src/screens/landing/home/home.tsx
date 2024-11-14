@@ -10,7 +10,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: ANIM_DURATION, type: ANIM_TYPE }}
-        className="text-left md:text-right text-6xl font-bold"
+        className="text-left md:text-right text-5xl lg:text-6xl font-bold"
       >
         Lens & Light
       </motion.p>
