@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -17,15 +18,22 @@
   -webkit-text-size-adjust: 100%;
   @apply text-sm;
   --d-s-red: #d90102;
-    --d-s-white: #f6f6f2;
-    --d-s-black: #212121;
-    --d-s-deep-black: #020202;
-    --d-s-neutral-gray: #ececec;
+  --d-s-white: #f6f6f2;
+  --d-s-black: #212121;
+  --d-s-deep-black: #020202;
+  --d-s-neutral-gray: #ececec;
 }
 
 .cursive-font {
   font-family: "Charm", cursive;
   font-weight: 700;
+  font-style: normal;
+}
+
+.readable {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -52,7 +60,7 @@ body {
   }
 
   .aboutText {
-    @apply text-lg sm:text-xl;
+    @apply text-lg sm:text-xl readable;
   }
 
   .contactAnchor {
@@ -66,7 +74,7 @@ textarea {
   font-size: 3em;
   border: none;
   border-radius: 4px;
-  @apply text-base px-3 py-2 text-secondary w-[80vw] sm:w-[450px];
+  @apply text-base px-3 py-2 text-primary w-[80vw] sm:w-[450px];
 }
 
 input:hover,
