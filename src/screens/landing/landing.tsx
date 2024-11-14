@@ -9,7 +9,7 @@ function LandingPage() {
   return (
     <div className={`${location.pathname.includes("home") ? "homeBg" : ""}`}>
       <motion.div
-        className={`w-full md:w-10/12 mx-auto flex flex-col items-center justify-center`}
+        className={`w-full mx-auto flex flex-col items-center justify-center`}
       >
         <Navbar
           navItems={[
