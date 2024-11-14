@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Sidebar } from "./sideBar";
 import { motion } from "framer-motion";
 import { ANIM_DURATION, ANIM_TYPE, DELAY } from "../../config/animConfig";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 
 export interface NavItem {
@@ -17,7 +17,6 @@ interface NavbarProps {
 
 const Navbar = ({ navItems }: NavbarProps) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [showSideNav, setshowSideNav] = useState<boolean>(false);
 
