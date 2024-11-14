@@ -22,7 +22,7 @@ function SplashScreen() {
         <img
           src="/assets/logo.png"
           alt=""
-          className="mx-auto w-3/5 sm:w-2/5 md:w-2/5 xl:1/4"
+          className="mx-auto w-3/5 sm:w-2/5 md:w-2/5 xl:1/4 text-secondary grayscale brightness-0"
         />
       </motion.div>
     </div>
